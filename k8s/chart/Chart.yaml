@@ -1,0 +1,7 @@
+apiVersion: v1
+name: sample-go-template-function
+version: "4.0"
+description: Function that handles template event processing functionality
+maintainers:
+  - name: SS
+    email: srinivasmeenavalli@gmail.com

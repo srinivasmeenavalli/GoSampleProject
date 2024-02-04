@@ -1,0 +1,9 @@
+deploy:
+  env: "local"
+
+# don't forget to build you image inside Minikube's docker
+# eval $(docker-machine env -u)
+# docker build -t your-super-image .
+image:
+  baseurl: "dev.local/alcl"
+  imagePullPolicy: "IfNotPresent"

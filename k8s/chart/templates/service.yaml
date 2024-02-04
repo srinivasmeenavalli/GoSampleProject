@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  annotations: {{- toYaml .Values.annotations | nindent 4 }}
+  labels: {{- toYaml .Values.labels | nindent 4 }}
+spec:
+  template:
+    spec:
+      containers:
+        - image: "{{ .Values.image.baseurl }}/{{ .Release.Name }}:{{ .Values.image.version }}"
+          imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+          name: {{ .Release.Name }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}

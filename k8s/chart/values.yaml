@@ -1,0 +1,26 @@
+deploy:
+  env: "local"
+
+image:
+  baseurl: "/alcl"
+  imagePullPolicy: "Always"
+  version: "latest"
+
+# All resources will be annotated with these KVs
+annotations:
+  platform: "sample"
+  team: "Kraken"
+  github-repo: "/sample-go-template-function"
+  product: "sample"
+
+labels:
+  product: "sample"
+  networking.knative.dev/visibility: cluster-local
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256M
+  requests:
+    cpu: 256m
+    memory: 124M

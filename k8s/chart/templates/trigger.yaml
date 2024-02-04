@@ -1,0 +1,16 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: {{ .Release.Name }}
+  annotations: {{- toYaml .Values.annotations | nindent 4 }}
+  labels: {{- toYaml .Values.labels | nindent 4 }}
+spec:
+  broker: alcl-broker
+  filter:
+    attributes:
+      type: sample.functiontemplate.pretemplated
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: {{ .Release.Name }}
